@@ -1,7 +1,13 @@
 body {
   display: grid;
   place-items: center;
-  height: 100vh;
+  /* height: 100vh; */
   margin: 0;
   font-family: sans-serif;
+}
+
+ul li {
+  font-size: 1.2rem;
+  font-family: Verdana;
+  list-style-type: none;
 }
