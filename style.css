@@ -11,3 +11,7 @@ ul li {
   font-family: Verdana;
   list-style-type: none;
 }
+
+ul li a {
+  text-decoration: none;
+}
