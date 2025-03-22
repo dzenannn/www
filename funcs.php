@@ -12,26 +12,30 @@ $library = [
             [
                'name' => "Haker, Trol, Uzbunjivač, Špijun", 
                'author' => "Gabrijela Kolman",
-               'purchaseUrl' => "http://google.com"
+               'purchaseUrl' => "http://google.com",
+               'year' => 2015,
             ],
             [
                'name' => "Digitalni Minimalizam", 
                'author' => "Kal Njuport",
-               'purchaseUrl' => "http://google.com"
+               'purchaseUrl' => "http://google.com",
+               'year' => 2016,
             ],
             [
                'name' => "Selam Alejkum", 
                'author' => "Kal Njuport",
-               'purchaseUrl' => "http://google.com"
+               'purchaseUrl' => "http://google.com",
+               'year' => 2017,
             ],
             [
                'name' => "Atomske Navike", 
                'author' => "Džejms Klir",
-               'purchaseUrl' => "http://google.com"
+               'purchaseUrl' => "http://google.com",
+               'year' => 2018,
             ],
     ];
 
-    function filterByAuthor($books, $author) {
+    $filterByAuthor = function ($books, $author) {
         $filteredBooks = [];
         
         foreach($books as $book) {
@@ -41,13 +45,45 @@ $library = [
         }
 
         return $filteredBooks;
-    }
+    };
 
-    filterByAuthor($library, 'Kal Njuport');
+    // function filter($array, $key, $value) { // bez callback-a
+        
+    //     $filteredItems = [];
+        
+    //     foreach($array as $item) {
+    //         if($item[$key] === $value) {
+    //             $filteredItems[] = $item;
+    //         }
+    //     }
+
+    //     return $filteredItems;
+    // };
+
+
+    function filter($array, $callback) { // sa callback-om
+        
+        $filteredItems = [];
+        
+        foreach($array as $item) {
+            if($callback($item)) {
+                $filteredItems[] = $item;
+            }
+        }
+
+        return $filteredItems;
+    };
+
+    // filterByAuthor($library, 'Kal Njuport'); // Undefined function
+     
+    $filteredBooks = array_filter($library, function ($book) {  
+        return $book['author'] === 'Kal Njuport';
+    }); 
+
     ?>
 
     <ul>
-        <?php foreach(filterByAuthor($library, 'Kal Njuport') as $book) : ?>
+        <?php foreach($filteredBooks as $book) : ?>
                 <li>
                     <a href="<?= $book['purchaseUrl'] ?>" > 
                     <?= $book['name']; ?> (<?=$book['author'];?>)
