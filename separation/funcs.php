@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <title>Functions and Filter</title>
-</head>
-<body>
-
 <?php 
-$library = [
+    $library = [
             [
                'name' => "Haker, Trol, Uzbunjivač, Špijun", 
                'author' => "Gabrijela Kolman",
@@ -47,21 +38,21 @@ $library = [
         return $filteredBooks;
     };
 
-    // function filter($array, $key, $value) { // bez callback-a
+    function filter($array, $key, $value) { // bez callback-a
         
-    //     $filteredItems = [];
+        $filteredItems = [];
         
-    //     foreach($array as $item) {
-    //         if($item[$key] === $value) {
-    //             $filteredItems[] = $item;
-    //         }
-    //     }
+        foreach($array as $item) {
+            if($item[$key] === $value) {
+                $filteredItems[] = $item;
+            }
+        }
 
-    //     return $filteredItems;
-    // };
+        return $filteredItems;
+    };
 
 
-    function filter($array, $callback) { // sa callback-om
+    function callbackFilter($array, $callback) { // sa callback-om
         
         $filteredItems = [];
         
@@ -73,24 +64,10 @@ $library = [
 
         return $filteredItems;
     };
-
-    // filterByAuthor($library, 'Kal Njuport'); // Undefined function
      
     $filteredBooks = array_filter($library, function ($book) {  
-        return $book['author'] === 'Kal Njuport';
-    }); 
+        return $book['year'] >= 2010 && $book['year'] <= 2020;
+    });
 
-    ?>
-
-    <ul>
-        <?php foreach($filteredBooks as $book) : ?>
-                <li>
-                    <a href="<?= $book['purchaseUrl'] ?>" > 
-                    <?= $book['name']; ?> (<?=$book['author'];?>)
-                </a>
-                </li>
-                <?php endforeach; ?>
-    </ul>
-
-</body>
-</html>
+    require "funcs.view.php";
+?>
