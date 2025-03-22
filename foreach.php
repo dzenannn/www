@@ -12,15 +12,12 @@ Ispiši svaki element niza koristeći echo.
 -->
 
 <?php 
-    $voce = [ [
-        'name' => 'Jabuka', 'cena' => 60
-    ], [
-        'name' => 'Banana', 'cena' => 100
-    ], [
-        'name' => 'Jagoda', 'cena' => 70
-    ], [
-        'name' => 'Narandža', 'cena' => 80
-    ]]
+    $voce = [
+        ['name' => 'Jabuka', 'cena' => 60],
+        ['name' => 'Banana', 'cena' => 100],
+        ['name' => 'Jagoda', 'cena' => 70],
+        ['name' => 'Narandža', 'cena' => 80]
+        ]
 ?>
 
 <?php
