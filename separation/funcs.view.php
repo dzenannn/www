@@ -9,7 +9,7 @@
     <ul>
         <?php foreach($filteredBooks as $book) : ?>
             <li>
-                <a href="<?= $book['purchaseUrl'] ?>" > 
+                <a target="_blank" href="<?= $book['purchaseUrl'] ?>" > 
                     <?= $book['name']; ?> (<?=$book['author'];?>)
                 </a>
             </li>
