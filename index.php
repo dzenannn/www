@@ -35,6 +35,9 @@
     <h1>
       <!-- <?php echo $message; ?>  -->
       <?= $message ?> <!-- shortcut -->
+      <br/>
+      <br/>
+      <?= "PHP Verzija: " . phpversion() ?>
     </h1>
   </body>
 </html>
