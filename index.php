@@ -1,3 +1,3 @@
 <?php
-$heading = 'Home';
-include "views/index.view.php";
+require "./functions.php";
+require "./router.php";
