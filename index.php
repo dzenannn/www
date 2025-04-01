@@ -7,6 +7,9 @@ $config = require('config.php');
 
 $db = new Database($config['database']);
 
-$posts = $db->query("select * from posts")->fetchAll();
+$id = $_GET['id'];
+$query = "select * from posts where id = :id"; // id = ?  //* id = :id
 
-dd($posts);
+$post = $db->query($query, ['id' => $id])->fetch(); // [$id] //* ['id' => $id]
+
+dd($post);
